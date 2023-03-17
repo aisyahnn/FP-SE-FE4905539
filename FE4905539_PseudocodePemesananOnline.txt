@@ -1,0 +1,30 @@
+READ AND WRITE "jenis_order" with string
+READ AND WRITE "order_nama_makanan" with string
+READ AND WRITE "order_harga_makanan" with double
+READ AND WRITE "order_nama_minuman" with string
+READ AND WRITE "order_harga_minuman" with double 
+READ AND WRITE "jumlah_order_makanan" with int
+READ AND WRITE "jumlah_order_minuman" with int
+READ AND WRITE "total_order" with double
+
+FUNCTION inputPesanan
+    IF jenis_order = "makanan" then
+        PRINT ("Silahkan pilih makanan :D")
+        INPUT order_nama_makanan
+        PRINT order_harga_makanan
+        INPUT jumlah_order_makanan
+        STORE total_order with order_harga_makanan multiply by jumlah_order_makanan
+    ELSE jenis_order = "minuman" then
+        PRINT ("Silahkan pilih minuman :D")
+        INPUT order_nama_minuman
+        PRINT order_harga_minuman
+        INPUT jumlah_order_minuman
+        STORE total_order with order_harga_makanan multiply by jumlah_order_minuman  
+    END IF
+END FUNCTION
+
+IF "tambah_pesanan" IS TRUE
+    inputPesanan
+ELSE
+PRINT total_order
+
